@@ -51,6 +51,7 @@
     "coverage/",
     ".eslintrc.js",
     "*.config.ts",
-    "packages/"
+    "packages/**/*",
+    "generated/"
   ]
 }
