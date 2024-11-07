@@ -1,0 +1,89 @@
+{
+  "name": "prisma-hono-generator",
+  "version": "0.0.0-development",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "test": "vitest run --coverage --config ./vitest.config.ts",
+    "test:watch": "vitest watch --config ./vitest.config.ts",
+    "prepublishOnly": "npm test && npm run lint && npm run build",
+    "preversion": "npm run lint",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky",
+    "test:fast": "vitest run --changed --coverage=false",
+    "lint:fast": "eslint --cache .",
+    "type-check:fast": "tsc --noEmit --incremental"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "eslint --fix",
+      "vitest related --run --coverage=false"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "@prisma/generator-helper": "^5.0.0",
+    "hono": "^4.0.0",
+    "zod": "^3.0.0",
+    "zod-prisma-types": "^3.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "prisma": "^5.0.0",
+    "semantic-release": "^24.2.0",
+    "ts-morph": "^21.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "peerDependencies": {
+    "prisma": "^5.0.0"
+  },
+  "keywords": [
+    "prisma",
+    "prisma-generator",
+    "hono",
+    "api",
+    "rest",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RicSala/prisma-hono-generator"
+  },
+  "type": "module"
+}

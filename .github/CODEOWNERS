@@ -1,0 +1,28 @@
+# Code Ownership Configuration
+# Automatically assigns reviewers for pull requests
+# Format: path pattern    @username or @team-name
+# More specific patterns take precedence
+
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# they will be requested for review when someone opens a PR.
+*       @RicSala
+
+# Generator core
+/src/generator/  @RicSala
+
+# Templates
+/src/templates/  @RicSala
+
+# Test files require careful review
+/tests/       @RicSala
+
+# Documentation changes need review
+/docs/        @RicSala
+
+# Configuration files are critical
+/*.json       @RicSala
+/*.js         @RicSala
+
+# CI/CD configurations
+/.github/     @RicSala

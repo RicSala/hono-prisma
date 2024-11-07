@@ -1,0 +1,44 @@
+# Stale Issues Management workflow
+# 
+# Purpose:
+# - Automatically identifies and manages inactive issues and pull requests
+# - Helps maintain repository cleanliness by closing truly abandoned items
+# - Reduces maintainer overhead for tracking old issues
+#
+# Process:
+# 1. Runs daily to check all issues and PRs
+# 2. Marks items as stale if no activity for specified period
+# 3. Closes stale items if no activity after warning period
+# 4. Exempt items can be configured to never be marked stale
+
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+    # Runs at 01:30 UTC every day
+    - cron: "30 1 * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/stale@v8
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        # Separate timing for issues and PRs
+        days-before-issue-stale: 60
+        days-before-issue-close: 7
+        days-before-pr-stale: 30
+        days-before-pr-close: 7
+        # Exempt labels
+        exempt-issue-labels: 'pinned,security,bug'
+        exempt-pr-labels: 'pinned,security,dependencies'
+        # Custom messages
+        stale-issue-message: 'This issue has been automatically marked as stale because it has had no activity for 60 days. It will be closed in 7 days if no further activity occurs. Thank you for your contributions.'
+        stale-pr-message: 'This PR has been automatically marked as stale because it has had no activity for 30 days. It will be closed in 7 days if no further activity occurs. Thank you for your contributions.'
+        # Labels
+        stale-issue-label: 'stale'
+        stale-pr-label: 'stale'
+        # Only run on specific branches
+        any-of-labels: 'awaiting response,needs review'
+        operations-per-run: 100

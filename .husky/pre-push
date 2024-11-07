@@ -1,0 +1,1 @@
+npm run type-check:fast && npm run test:fast && npm run lint:fast
