@@ -51,6 +51,6 @@
     "coverage/",
     ".eslintrc.js",
     "*.config.ts",
-    "usage/*"
+    "packages/"
   ]
 }
