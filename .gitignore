@@ -29,3 +29,16 @@ coverage
 
 # Prisma
 prisma/*.db 
+
+# Cursor files and other ai files
+.cursorrules
+# .aiHelpers foder and files
+.aiHelpers
+
+# Usage package
+packages/usage/node_modules
+packages/usage/.env
+packages/usage/prisma/dev.db
+packages/usage/prisma/dev.db-journal
+packages/usage/prisma/generated
+packages/usage/src/generated

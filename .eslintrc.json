@@ -20,7 +20,10 @@
     "prettier/prettier": [
       "error",
       {
-        "singleQuote": true
+        "semi": true,
+        "singleQuote": true,
+        "bracketSpacing": true,
+        "trailingComma": "es5"
       }
     ],
     "@typescript-eslint/explicit-function-return-type": "off",

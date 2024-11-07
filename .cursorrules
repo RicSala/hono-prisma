@@ -32,7 +32,7 @@ Releases:
 
 ## Overview
 
-A Prisma generator that automatically creates type-safe Hono API routes from Prisma schema models, providing seamless integration between your database schema and API endpoints.
+A Prisma generator for Nextjs that automatically creates type-safe Hono API routes from Prisma schema models, providing seamless integration between your database schema and API endpoints.
 
 ## Core Features
 
@@ -77,6 +77,10 @@ A Prisma generator that automatically creates type-safe Hono API routes from Pri
 - `hono`
 - `zod`
 - `@prisma/generator-helper`
+- `ts-morph` for code manipulation and generation
+- `zod-prisma-types` for generating Zod schemas from Prisma models
+- `@prisma/client` for database operations
+- `tsup` for building the project
 
 ### Development Environment
 
