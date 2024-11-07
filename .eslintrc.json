@@ -45,5 +45,12 @@
       }
     }
   ],
-  "ignorePatterns": ["dist/", "node_modules/", "coverage/", ".eslintrc.js"]
+  "ignorePatterns": [
+    "dist/",
+    "node_modules/",
+    "coverage/",
+    ".eslintrc.js",
+    "*.config.ts",
+    "usage/*"
+  ]
 }
