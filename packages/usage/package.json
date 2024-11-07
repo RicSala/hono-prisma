@@ -1,12 +1,27 @@
 {
-  "name": "usage",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@prisma-hono-generator/usage",
+  "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node src/index.ts",
+    "clean": "rm -rf node_modules/.prisma && rm -rf src/generated",
+    "build:generator": "cd ../.. && npm run build",
+    "generate:client": "prisma generate --generator client",
+    "generate:hono": "npm run build:generator && prisma generate --generator hono",
+    "generate": "npm run clean && npm run generate:client && npm run generate:hono",
+    "postinstall": "npm run generate"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "@prisma/client": "^5.10.2",
+    "@prisma/generator-helper": "^5.22.0",
+    "hono": "^4.0.8",
+    "zod": "^3.23.8",
+    "zod-prisma-types": "^3.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "prisma": "^5.10.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
 }
